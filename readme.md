@@ -1,13 +1,21 @@
 ### The Face of Crime During Prime Time: Evidence from Law and Order
 
-
 #### Data
 
-The data were collected between April and July, 2016. 
+The data are from three popular Law & Order series --- . The data were collected between April and July, 2016. 
 
 If you see an inconsistency in the data, or have a suggestion, or some data that you would like to contribute to the project, please create a pull request.
 
+* [Criminal Intent](data/)
+* [Original](data/)
+* [Special Victims Unit](data/)
+* [Census](data/census/)
+* [UCR](data/ucr/)
+* [NCVS](data/ncvs/)
+
 #### Analysis, Write-up, And Figures
+
+* [Manuscript](ms/face_of_crime.pdf) 
 
 #### Authors
 
