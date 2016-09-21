@@ -16,7 +16,7 @@ To contextualize the race and gender distribution in the shows, we assembled rel
 
 If you see an inconsistency in the data, or have a suggestion, or some data that you would like to contribute to the project, please create a pull request.
 
-#### Analysis, Write-up, And Figures
+#### Analysis and Write-up
 
 * [Scripts](scripts/)
 * [Manuscript](ms/face_of_crime.pdf) 
@@ -27,4 +27,4 @@ Gaurav Sood and Dan Trielli
 
 #### License
 
-Scripts, figures, and writing are released under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). 
+Released under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). 
