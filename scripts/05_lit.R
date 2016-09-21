@@ -13,6 +13,8 @@ library(xtable)
 # Read in data
 lit <- read.csv("data/lit.csv")
 
+names(lit) <- c("Region Covered", "Time frame", "Media", "Key Relevant Findings", "Citation")
+
 print(
 	  xtable(lit, 
 	  	caption="Racial Distribution of Perpetrators and Victims on Various Television Shows", 
