@@ -1,0 +1,22 @@
+season,episode,year,title,crime,n_victims,v_sex_1,v_race_1,v_sex_2,v_race_2,v_sex_3,v_race_3,v_sex,v_race,n_criminals,c_sex_1,c_race_1,c_sex_2,c_race_2,c_sex_3,c_race_3,c_sex,c_race,notes
+2,1,2000,Wrong is right,Assault;Manslaughter,3,Male,White,Male,White,Male,White,3 male,3 white,3,Male,White,Male,White,Male,White,3 male,3 white,The male was murdered(manslaughter) by his victim who he sexually assaulted. In addition another male is charged with sexual assaulting the same victim.
+2,2,2000,Honor,Murder,2,Female,White,Female,White,,,2 female,2 white,2,Male,White,Male,White,,,2 male,2 white,Ethnicity of victim and criminal is Middle Eastern
+2,3,2000,Closure,Rape,1,Female,White,,,,,female,white,1,Male,White,,,,,male,white,"In the end, the case was a mistrial  because witness (wife of criminal) is unstable. Episode closes with the wife killing the criminal, but claiming it was self defense. "
+2,4,2000,Legacy,Abuse/Assault,2,Female,White,Male,White,,,"1 female, 1 male",2 white,2,Female,White,Male,Hispanic,,,"1 female, 1 male","1 white, 1 hispanic",
+2,5,2000,Baby Killer,Murder,2,Female,Black,Male,Hispanic,,,"1 female, 1 male","1 white, 1 black",2,Male,Hispanic,Male,Black,,,2 male,"1 black, 1 hispanic",
+2,6,2000,Noncompliance,Rape;Murder,1,Female,White,,,,,female,white,1,Male,White,,,,,male,white,
+2,7,2000,Asunder,Rape,1,Female,White,,,,,female,white,1,Male,White,,,,,male,white,
+2,8,2000,Taken,Fraud & Manslaughter,1,Male,White,,,,,male,white,1,Female,White,,,,,female,white,White female falsely accused a white male of rape as part of a larger fraud/scam ( unspecified number of victims/ multiple number of unspecified criminals). Accused rapist was murdered in jail (white female charged with manslaughter).
+2,9,2001,Pixies,Rape;Murder,1,Female,White,,,,,female,white,1,Female,White,,,,,female,white,
+2,10,2001,Consent,Neglect,1,Female,White,,,,,female,white,2,Male,White,Female,White,,,male,white,
+2,11,2001,Abuse,Rape;Possession,1,Female,White,,,,,female,white,3,Male,White,Female,White,Female,White,"1 male, 2 female",2 white, Rape victim was drugged by two white females by accident. Rapist was found not guilty because he didn’t know she was drugged.
+2,12,2001,Secrets,Murder,1,Female,White,,,,,female,white,1,Male,White,,,,,male,white,
+2,13,2001,Victims,Murder,2,Male,White,Male,White,,,2 male,2 white,1,Female,White,,,,,female,white,
+2,14,2001,Paranoia,Rape,1,Female,Black,,,,,female,white,1,Male,White,,,,,male,white,
+2,15,2001,Countdown,Rape;Murder,6,Female,White,Female,White,Female,,3 female,2 white,1,Male,White,,,,,male,white,"In addition to the two victims above, there were 4 more victims whose race was unspecified."
+2,16,2001,Runaway,Murder,1,Male,Black,,,,,male,black,1,Male,Black,,,,,male,black,
+2,17,2001,Folly,Assault,3,Not Revealed,Not Revealed,Not Revealed,Not Revealed,Not Revealed,Not Revealed, - , - ,2,Male,White,Female,White,,,"1 male, 1 female",2 white,Total number of victims exceeds 3
+2,18,2001,Manhunt,Rape;Murder,1,Female,White,,,,,female,white,1,Male,White,,,,,male,white,
+2,19,2001,Parasites,Rape;Murder,16,Female,White,Female,White,Male,White,"2 female, 1 male",3 white,2,Male,White,Male,White,,,2 male,2 white,"16 victims (2 white females,1 white male). rest unspecified"
+2,20,2001,Pique,Rape;Murder,2,Female,White,Female,White,,,2 female,2 white,1,Male,White,,,,,male,white,
+2,21,2001,Scourge,Murder,4,Female,White,Female,White,,,"2 female, 2 male",4 white,1,Male,White,,,,,male,white,other two victims were male; other two victims were white (4 total victims)

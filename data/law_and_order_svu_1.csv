@@ -1,0 +1,23 @@
+season,episode,year,title,v_race,v_sex,c_race,c_sex,crime1,crime2,n_criminals,n_victims
+1,1,1999,payback,white,male,white,female,murder,,,
+1,2,1999,A Single Life,white,female,white,male,rape,forced to commit suicide,,
+1,3,1999,Or Just Look Like One,,,,,,,,
+1,4,1999,Hysteria,black,female,white,male,murder,,,
+1,5,1999,Wanderlust,white,male,white,female,murder,,,
+1,6,1999,Sophomore Jinx,white,female,white,male,murder,rape,,
+1,7,1999,Uncivilized,white,male,white,male,murder,,2,
+1,8,1999,Stalked,,female,white,male,murder,rape,,
+1,9,1999,Stocks & Bondage,white,male,white,male,murder,rape,,
+1,10,2000,Closure,white,female,white,male,,rape,,
+1,11,2000,Bad Blood,,,,,murder,,,
+1,12,2000,Russian Love Poem,white,female,white,male,murder,,2,
+1,13,2000,Disrobed,white,male,white,male,murder,,,
+1,14,2000,Limitations,white,female,white,male,,rape,,3
+1,15,2000,Entitled,white,male,white,female,murder,rape,,
+1,16,2000,The Third Guy,white,female,white,male,murder,rape,,
+1,17,2000,Misleader,white,female,white,male,murder,,,
+1,18,2000,Chat Room,white,female,white,male,,rape,,
+1,19,2000,Contact,white,female,white,male,,rape,,
+1,20,2000,Remorse,white,female,white,male,murder,rape,2,
+1,21,2000,Nocturne,black,male,"1 white, 1hispanic",male,,rape,,lots
+1,22,2000,Slaves,white,female,white,female,murder,,,

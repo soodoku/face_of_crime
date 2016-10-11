@@ -1,0 +1,75 @@
+Timestamp,season,episode,year,title,crime,n_victims,v_sex,v_race,n_criminals,c_sex,c_race,notes
+2016/05/31 12:47:23 AM AST,3,1,2001,Repression,Rape and Molestation,2,2 female,2 white,1,Male,White,"At the end of the episode the therapist (helping the rape victim and her sister) is charged with reckless endangerment and the death of the father (planting false memories into the rape victims mind, which leads to the accidental death of the father). "
+2016/05/31 12:52:29 AM AST,3,2,2001,Wrath,Murder,3,"1 female, 2 male","2 white, 1 black",1,Male,White,white male/black male/white female
+2016/05/31 12:54:12 AM AST,3,3,2001,Stolen,Baby kidnapping,1,Female,White,1,Female,White,
+2016/05/31 1:45:57 AM AST,3,4,2001,Rooftop,4 Murders and 5 Rapes/ Possession of Narcotics,9,Female,Black,1,Male,Black,
+2016/05/31 2:11:38 AM AST,3,5,2001,Tangled,2 rapes/2 murders,4,"2 female, 2 male",White,2,"1 female, 1 male",White,"2 females raped, 2 males killed"
+2016/06/02 3:35:48 PM AST,3,6,2001,Redemption,1 Rape and 2 murders,3,3 female,3 white,2,2 male,2 white,"2 separate cases. 1st, white male gets away with raping white female. 2nd, white male murders two white females."
+2016/06/02 3:36:53 PM AST,3,7,2001,Sacrifice,Murder,1,Male,White,1,Male,White,
+2016/06/02 3:38:40 PM AST,3,8,2001,Inheritance,Rape and burglary,1,Female,Asian,6,6 male,Asian,5 criminals for burglary and 1 for rape.
+2016/06/02 3:39:29 PM AST,3,9,2001,Care,Murder,1,Female,Black,1,Female,White,
+2016/06/02 3:43:11 PM AST,3,10,2001,Ridicule,murder and Assault,2,"1 female, 1 male",2 white,2,Female,White,female murdered and male assaulted
+2016/06/02 3:44:52 PM AST,3,11,2002,Monogamy,Assault and Murder,2,"1 female, 1 male",2 white,1,Male,White,Male fetus was removed from mother and killed.
+2016/06/02 3:45:39 PM AST,3,12,2002,Protection,murder,1,Male,Hispanic,1,Male,Hispanic,
+2016/06/02 3:46:52 PM AST,3,13,2002,Prodigy,Murders,2,"1 female, 1 male",2 white,1,Male,White,
+2016/06/02 3:54:55 PM AST,3,14,2002,Counterfeit,Murder and multiple rapes,multiple,Female,mixed,1,Male,White,
+2016/06/02 3:57:18 PM AST,3,15,2002,Execution,Rape murder,1,Female,White,1,Male,White,
+2016/06/02 3:58:26 PM AST,3,16,2002,Popular,Rape,1,Female,White,1,Male,White,
+2016/06/02 4:00:08 PM AST,3,17,2002,Surveillance,Rape murder,2,"1 female, 1 male",2 white,1,Female,White,female raped and male murdered
+2016/06/02 4:02:21 PM AST,3,18,2002,Guilt,Child Molestation,1,Male,White,1,Male,White,Multiple victims come forward at the end (descriptions aren't given).
+2016/06/02 4:03:19 PM AST,3,19,2002,Justice,Murder,1,Female,White,1,Female,White,
+2016/06/02 4:04:19 PM AST,3,20,2002,Greed,conspiracy to commit murder and robbery  ,1,Female,White,2,"1 female, 1 male",White,
+2016/06/02 4:06:47 PM AST,3,21,2002,Denial,"Rape, Murder, and obstruction of Justice",3,"2 female, 1 male",3 white,3,"2 female, 1 male",White,"I listed the crimes, victims, and criminals in order."
+2016/06/02 4:07:39 PM AST,3,22,2002,Competence,Rape,1,Female,White,1,Male,White,
+2016/06/02 4:09:36 PM AST,3,23,2002,Silence,Murder and rapes,Multiple,"1 male, uknown","1 white, uknown",1,Male,White,1 male white murder victim and multiple victims of rape (no description given).
+2016/06/04 3:08:02 PM AST,4,1,2002,Chameleon,murders,multiple,"1 female, uknown",multiple,2,"1 male, 1 female",2 white,"Prostitute hung by white male, and female serial killer kills multiple males."
+2016/06/04 3:10:14 PM AST,4,4,2002,Deception,murder and sex with minor,2,Male,White,1,Female,White,"White male murdered by white female and same female had sex with white male minor. 
+"
+2016/06/04 3:11:53 PM AST,4,3,2002,Vulnerable,murders,7,both,multiple,1,Female,White,
+2016/06/04 3:12:36 PM AST,4,4,2002,Lust,murder,2,Female,White,1,Male,White,
+2016/06/04 3:14:00 PM AST,4,5,2002,Disappearing Acts,rape and murder,3,3 female,3 white,2,2 male,2 white,1 white female rape victim by white male. 2 female white murder victims by white male.
+2016/06/04 3:15:52 PM AST,4,6,2002,Angels,murder and sexual abuse,1,Male,Hispanic,1,Male,White,
+2016/06/04 3:17:01 PM AST,4,7,2002,Dolls,"rape and murder, kidnapping",2,Female,Black,1,Male,White,
+2016/06/04 3:17:55 PM AST,4,8,2002,Waste,rapw,1,Female,White,1,Male,White,
+2016/06/04 3:19:02 PM AST,4,9,2002,Juvenile,Rape murder,1,Female,White,2,Male,White,
+2016/06/04 3:19:52 PM AST,4,10,2002,Resilience,"murder, rape",2,Female,White,1,Male,White,
+2016/06/04 3:21:25 PM AST,4,11,2002,Damaged,"murder,rape",3,"2 male, 1 female",3 white,2,"1 male, 1 female",3 white,2 white males murdered by white male. White female raped by white female.
+2016/06/04 3:23:02 PM AST,4,12,2003,Risk,Drug smuggling ring,multiple,"2 male, 1 female",3 white,multiple,both,White,
+2016/06/04 3:24:00 PM AST,4,13,2003,Rotten,murders,multiple,Male,multiple,3,3 male,"2 white, 1 hispanic",
+2016/06/04 3:24:34 PM AST,4,14,2003,Mercy,murder,1,Female,White,1,Female,White,
+2016/06/04 3:25:39 PM AST,4,15,2003,Pandora,"rape, murder",2,"1 male, 1 female",2 white,1,Male,White,female raped and male murdered.
+2016/06/04 3:26:13 PM AST,4,16,2003,Tortured,murder,1,Female,Asian,1,Female,White,
+2016/06/04 3:27:57 PM AST,4,17,2003,Privilege,"murder, perjury",1,Female,Hispanic,2,"1 female, 1 male",White,Male committed the murder and female perjury.
+2016/06/04 3:28:42 PM AST,4,18,2003,Desperate,murder,1,Female,White,1,Male,White,
+2016/06/04 3:29:41 PM AST,4,19,2003,Appearances,Rape murder,1,Female,White,2,2 male,White,
+2016/06/04 3:32:31 PM AST,4,20,2003,Dominance,"Rape murder,murder, rape murder",8,both,White,1,Male,White,6 white males and females are raped and murdered. A  white male and white female are murdered.
+2016/06/04 3:33:13 PM AST,4,21,2003,Fallacy,Murder,1,Male,White,1,Female,White,Criminal was transgender and murdered her possible male rapist. 
+2016/06/04 3:34:51 PM AST,4,22,2003,Futility,Rape,2,Female,Multiple,2,2 male,"1 white, 1 black",black male (father) murdered presumptuous rapist of daughter.
+2016/06/04 3:35:25 PM AST,4,23,2003,Grief,Rape murder,1,Female,Black,1,Male,Black,
+2016/06/04 3:36:15 PM AST,4,24,2003,Perfect,Murder,1,Female,Black,1,Male,White,
+2016/06/04 3:36:52 PM AST,4,25,2003,Soulless,Rape murder,1,Female,White,1,Male,White,
+2016/06/04 3:39:13 PM AST,5,1,2003,Tragedy,Kidnap murder,1,Female,White,1,Female,White,Female is charged with murder and kidnap after hiring a hitman to kidnap/kill the victim.
+2016/06/04 3:40:10 PM AST,5,2,2003,Manic,Murder,2,Male,"1 white, 1 black",1,Male,White,White male is arrested at the end for reckless endangerment for giving unpatented drugs to customers ( leading to a white male committing murder).
+2016/06/04 3:41:08 PM AST,5,3,2003,Mother,"Rape, Murder",2,Female,White,2,"1 male, 1 female",2 white,2 cases. white female rape victim by white male. white female murdered white female.
+2016/06/04 3:42:45 PM AST,5,4,2003,Loss,Murders,2,"1 male, 1 female","1 hispanic, 1 white",1,Male,Hispanic,Female is hispanic and male is white
+2016/06/04 3:43:40 PM AST,5,5,2003,Serendipity ,"Murders, rape",Multiple,both,Multiple,1,Male,White,
+2016/06/04 3:45:09 PM AST,5,6,2003,Coerced,Kidnapping,1,Male,White,1,Male,White,2nd case at end of episode; White male is charged with fraud and murder of a male and female (no race specified).
+2016/06/04 3:47:04 PM AST,5,7,2003,Choice,Assault,1,Female,White,1,Male,White,
+2016/06/04 3:48:12 PM AST,5,8,2003,Abomination ,Murder,1,Male,White,1,Male,White,
+2016/06/04 3:49:18 PM AST,5,9,2003,Control,Murder,1,Male,White,1,Female,White,
+2016/06/04 3:50:12 PM AST,5,10,2003,Shaken,Assault,1,Female,White,1,Female,White,
+2016/06/04 3:50:47 PM AST,5,11,2003,Escape,Rape,1,Male,White,1,Male,White,
+2016/06/04 3:51:20 PM AST,5,12,2003,Brotherhood,Rape murder,1,Male,White,1,Male,White,
+2016/06/04 3:52:16 PM AST,5,13,2004,Hate,Rape murder,1,Female,Asian,1,Male,White,
+2016/06/04 3:54:00 PM AST,5,14,2004,Ritual,Murder,1,Male,Black,1,Male,Black,"Children smuggling cartel, lots of victims and criminals alluded at the end of episode."
+2016/06/04 3:54:45 PM AST,5,15,2004,Families,Murders,2,both,White,1,Female,White,
+2016/06/04 3:55:25 PM AST,5,16,2004,Home,Murder,1,Male,White,1,Male,White,
+2016/06/04 3:56:20 PM AST,5,17,2004,Mean,Murder,1,Female,White,3,Female,White,"End of episode, another murder of a white female is committed by a white female. "
+2016/06/04 3:56:52 PM AST,5,18,2004,Careless,Murder,1,Male,Black,1,Female,Black,
+2016/06/04 3:57:24 PM AST,5,19,2004,Sick,Molestation and abuse,1,Male,White,1,Male,White,
+2016/06/04 3:57:54 PM AST,5,20,2004,Lowdown,Murder,1,Male,White,1,Male,Black,
+2016/06/04 3:58:47 PM AST,5,21,2004,Criminal,Murder,1,Male,White,1,Male,White,
+2016/06/04 3:59:27 PM AST,5,22,2004,Painless,Rape,1,Female,White,1,Female,White,
+2016/06/04 4:00:06 PM AST,5,23,2004,Bound,Rape murder,1,Female,White,1,Female,White,
+2016/06/04 4:00:42 PM AST,5,24,2004,Poison,Murder,1,Female,White,1,Female,White,
+2016/06/04 4:01:12 PM AST,5,25,2004,Head,Molestation,1,Male,White,1,Female,White,
