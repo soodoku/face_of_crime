@@ -14,14 +14,14 @@ To contextualize the race and gender distribution in the shows, we assembled rel
 * [UCR](data/ucr/)
 * [NCVS](data/ncvs/)
 
-### Contribute to the project
-
-If you see an inconsistency in the data, or have a suggestion, or some data that you would like to contribute to the project, please create a pull request or open an issue. 
-
 #### Analysis and Write-up
 
 * [Scripts](scripts/)
 * [Manuscript (pdf)](ms/face_of_crime.pdf) 
+
+### Contribute to the project
+
+If you see an inconsistency in the data, or have a suggestion, or some data that you would like to contribute to the project, please create a pull request or open an issue. 
 
 #### Authors
 
