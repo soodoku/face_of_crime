@@ -27,13 +27,14 @@ lo_or$series  <- "Original"
 
 lo_all <- rbind(lo_ci, lo_svu, lo_or)
 
-
-
 # Total shows, n_victims, n_criminals
 nrow(lo_all)
 sum(as.numeric(lo_all$n_victims), na.rm=T)
 sum(as.numeric(lo_all$n_criminals), na.rm=T)
 
+# What kind of crime 
+sum(grepl("rape|murder", tolower(lo_all$crime)))
+sum(grepl("rape|murder|assault", tolower(lo_all$crime)))
 
 # -----------
 # Custom theme
@@ -59,6 +60,20 @@ theme(panel.grid.major.x = element_blank(),
 # Plot 1a
 # Victims by Gender
 
+# Victims by Gender in shows where one of the crimes was rape 
+lo_rape <- lo_all[grepl("rape", tolower(lo_all$crime)),]
+lo_rape %>%
+group_by(series) %>%
+summarise(male=sum(n_v_male, na.rm=T), female=sum(n_v_female, na.rm=T), pfemale = female*100/sum(male, female))
+
+# Victims by Gender in shows where one of the crimes was murder
+lo_murder <- lo_all[grepl("murder", tolower(lo_all$crime)),]
+lo_murder %>%
+group_by(series) %>%
+summarise(male=sum(n_v_male, na.rm=T), female=sum(n_v_female, na.rm=T), pfemale = female*100/sum(male, female))
+
+
+# Victims by gender
 out <- 
 lo_all %>%
 group_by(series) %>%
@@ -86,7 +101,7 @@ rout <- melt(out[,c("series", "pfemale")])
 
 ggplot(rout, aes(series, value, fill=variable)) + 
 geom_bar(stat = "identity", width=.25, position="dodge", fill="#c9c9c9", colour="#c9c9c9") + 
-scale_y_continuous(name="Percentage of Female Perpetrators", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
+scale_y_continuous(name="Percentage of Female Criminals", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
 xlab("") +
 cust_theme 
 
@@ -122,7 +137,7 @@ rout <- melt(out[,c("series", "pblack")])
 
 ggplot(rout, aes(series, value, fill=variable)) + 
 geom_bar(stat = "identity", width=.25, position="dodge", fill="#c9c9c9", colour="#c9c9c9") + 
-scale_y_continuous(name="Percentage of White and Black Perpetrators", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
+scale_y_continuous(name="Percentage of White and Black Criminals", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
 xlab("") +
 cust_theme
 

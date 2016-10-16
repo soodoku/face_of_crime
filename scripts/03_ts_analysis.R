@@ -180,7 +180,7 @@ colMeans(all_out_c_gender[,5:9], na.rm=T)
 print_2heading_xtable(all_out_c_gender, 
 	separator = "__",
     digits=c(0, 0,rep(1,10)),
-	caption="Percentage of Female Perpetrators in Law \\& Order, and the Real World, and Share of Women in the Population", 
+	caption="Percentage of Female Criminals in Law \\& Order, and the Real World, and Share of Women in the Population", 
 	label="tab:c_sex",
 	caption.placement="top",
 	size="\\tiny", 
@@ -198,7 +198,7 @@ p <-
 ggplot(out, aes(x=year, y=pfemale, color=series)) + 
 geom_point(pch=16, alpha=.8, size=3) + 
 geom_line(lty='dotted', alpha=.7) + 
-scale_y_continuous(name="Percentage of Female Perpetrators", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
+scale_y_continuous(name="Percentage of Female Criminals", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
 scale_x_continuous(name="", limits=c(1990,2016), breaks=seq(1990,2020,5), labels=seq(1990,2020,5)) +
 labs(color=NULL) + 
 cust_theme
@@ -308,7 +308,7 @@ names(all_out_c_race) <- renames[match(names(all_out_c_race), names(renames))]
 print_2heading_xtable(all_out_c_race, 
 	separator = "__",
     digits=c(0, 0,rep(1,10)),
-	caption="Percentage of Black Perpetrators in Law \\& Order, and the Real World, and Share of Blacks in the Population", 
+	caption="Percentage of Black Criminals in Law \\& Order, and the Real World, and Share of Blacks in the Population", 
 	label="tab:c_race",
 	caption.placement="top",
 	size="\\tiny", 
@@ -325,7 +325,7 @@ p <-
 ggplot(out, aes(x=year, y=pblack, color=series)) + 
 geom_point(pch=16, alpha=.8, size=3) + 
 geom_line(lty='dotted', alpha=.7) + 
-scale_y_continuous(name="Percentage of Black Perpetrators", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
+scale_y_continuous(name="Percentage of Black Criminals", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
 scale_x_continuous(name="", limits=c(1990,2016), breaks=seq(1980,2020,5), labels=seq(1980,2020,5)) +
 labs(color=NULL) + 
 cust_theme
