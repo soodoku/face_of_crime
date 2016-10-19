@@ -119,7 +119,7 @@ theme(panel.grid.major   = element_line(color="#e7e7e7",  linetype = "dotted"),
 	  axis.ticks.y = element_blank(),
 	  axis.title.x = element_text(vjust=-1),
 	  axis.title.y = element_text(vjust= 1),
-	  axis.ticks.x = element_line(color="#e3e3e3", size=.2),
+	  axis.ticks.x = element_line(color="#e7e7e7",  linetype = "dotted", size=.2),
 	  plot.margin = unit(c(0,1,.5,.5), "cm"))
 
 #---------------------------
