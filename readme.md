@@ -8,11 +8,12 @@ We coded the race and gender of criminals and victims in shows from three popula
 * [Original](data/law_and_order_lo.csv)
 * [Special Victims Unit](data/)
 
-To contextualize the race and gender distribution in the shows, we assembled relevant data for the years the shows were on air from the census, FBI's Uniform Crime Reports, and the National Crime Victimization Survey:
+To contextualize the race and gender distribution in the shows, we assembled relevant data for the years the shows were on air from the census, FBI's Uniform Crime Reports, the National Crime Victimization Survey, and NYC enforcement data:
 
 * [Census](data/census/)
 * [UCR](data/ucr/)
 * [NCVS](data/ncvs/)
+* [NYC Enforcement data](data/ny_enforcement/)
 
 #### Analysis and Write-up
 
