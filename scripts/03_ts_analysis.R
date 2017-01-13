@@ -50,6 +50,11 @@ names(murder_victims) <- tolower(names(murder_victims))
 # UCR
 ucr        <- read.csv("data/ucr/race_gender_criminals.csv")
 
+# NY Data  
+ny        <- read.csv("data/ny_enforcement/nyc_enforcement.csv")
+names(ny) <- tolower(names(ny))
+ny        <- as.data.frame(lapply(ny, function(x) as.numeric(gsub("%", "", x))))
+
 # Victims by Gender
 # ----------------------------
 
@@ -222,6 +227,7 @@ w_out <- out[,c("pblack", "series", "year")] %>% spread(series, pblack)
 all_out_v_race <- 
 w_out %>% 
 left_join(ncvs[,c("year", "serious_violent_victimization_black", "rape_sexual_assault_black", "aggravated_assault_black")], by="year") %>%
+left_join(ny[,  c("year", "homicides_black_victim", "rapes_black_victim", "assaults_black_victim", "robberies_black_victim")], by="year") %>%
 left_join(murder_victims[,c("year", "murder_victim_black")], by="year") %>%
 left_join(census[,c("year", "black_us", "black_ny")], by="year")
 
@@ -233,7 +239,11 @@ c(year = "Year",
   serious_violent_victimization_black = "NCVS__Serious Violent Victimization",  
   rape_sexual_assault_black           = "NCVS__Rape or Sexual Assault",        
   aggravated_assault_black            = "NCVS__Aggravated Violent Victimization",            
-  murder_victim_black                 = "UCR__Murder Victims",               
+  murder_victim_black                 = "UCR__Murder Victims", 
+  homicides_black_victim              = "NYPD__Homicides", 
+  rapes_black_victim                  = "NYPD__Rape", 
+  assaults_black_victim               = "NYPD__Assault",
+  robberies_black_victim              = "NYPD__Robbery",               
   black_us                            = "Census__US",  
   black_ny                            = "Census__NY"
 )
@@ -245,13 +255,14 @@ colMeans(all_out_v_race[,5:8], na.rm=T)
 
 print_2heading_xtable(all_out_v_race, 
 	separator = "__",
-	digits=c(0,0,rep(1,9)),
+	digits=c(0,0,rep(1,13)),
 	caption="Share of Black Victims in Law \\& Order, and the Real World, and Share of Blacks in the Population", 
 	label="tab:v_race",
 	caption.placement="top",
 	size="\\tiny", 
+	floating.environment = "sidewaystable",
 	heading_command = NULL,
-	xtable.align = c("l", rep("c", 10)),
+	xtable.align = c("l", rep("c", 14)),
 	sanitize.text.function = function(x){x},
 	table.placement="!htb",
 	file="tabs/v_race.tex")
@@ -286,8 +297,9 @@ w_out <- out[,c("pblack", "series", "year")] %>% spread(series, pblack)
 # Append data
 all_out_c_race <- 
 w_out %>% 
-left_join(ucr[,c("year", "all_crime_perc_black", "violent_crime_perc_black", "homicides_perc_black", "rape_perc_black", "assault_perc_black")], by="year") %>%
-left_join(census[,c("year", "black_us", "black_ny")], by="year")
+left_join(ucr[, c("year", "all_crime_perc_black", "violent_crime_perc_black", "homicides_perc_black", "rape_perc_black", "assault_perc_black")], by="year") %>%
+left_join(ny[,  c("year", "homicides_black_suspect", "rapes_black_suspect", "assaults_black_suspect", "robberies_black_suspect")], by="year") %>%
+left_join(census[, c("year", "black_us", "black_ny")], by="year") 
 
 renames <- 
 c(year = "Year", 
@@ -295,10 +307,14 @@ c(year = "Year",
   Original = "Law and Order__Original",                           
   SVU = "Law and Order__SVU",
   all_crime_perc_black      = "UCR__All Crime",
-  violent_crime_perc_black = "UCR__Violent Crime",
+  violent_crime_perc_black  = "UCR__Violent Crime",
   homicides_perc_black      = "UCR__Homicides",
   rape_perc_black           = "UCR__Rape",
   assault_perc_black        = "UCR__Assault",
+  homicides_black_suspect   = "NYPD__Homicides", 
+  rapes_black_suspect       = "NYPD__Rape", 
+  assaults_black_suspect    = "NYPD__Assault",
+  robberies_black_suspect   = "NYPD__Robbery", 
   black_us                  = "Census__US",  
   black_ny                  = "Census__NY"
 )
@@ -307,13 +323,13 @@ names(all_out_c_race) <- renames[match(names(all_out_c_race), names(renames))]
 
 print_2heading_xtable(all_out_c_race, 
 	separator = "__",
-    digits=c(0, 0,rep(1,10)),
+    digits=c(0, 0, rep(1,14)),
 	caption="Share of Black Criminals in Law \\& Order, and the Real World, and Share of Blacks in the Population", 
 	label="tab:c_race",
 	caption.placement="top",
 	size="\\tiny", 
 	heading_command = NULL,
-	xtable.align = c("l", rep("c", 11)),
+	xtable.align = c("l", rep("c", 15)),
 	sanitize.text.function = function(x){x},
 	table.placement="!htb",
 	file="tabs/c_race.tex")
@@ -333,3 +349,4 @@ cust_theme
 direct.label(p, list(last.points, cex=.8, alpha=1, hjust = 0, vjust = -.75))
 
 ggsave("figs/all_criminals_by_race_ts.pdf", dpi=450, width=7.5)
+
