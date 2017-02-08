@@ -68,7 +68,7 @@ setwd(basedir)
 \clearpage
 \doublespace
 
-Offensive portrayals of African Americans on entertainment shows have long been the norm in the US. For instance, minstrel shows, so popular in the 19th century and first half of the 20th century, regularly portrayed African Americans as lazy and dim-witted \citep{dates1993split, toll1974blacking}. More recently, \citet{entman2001black} found that 56\% of blacks in the media were portrayed as violent compared to 11\% of the whites.
+Offensive portrayals of African Americans on entertainment shows have long been the norm in the US. For instance, minstrel shows, popular in the 19th century and the first half of the 20th century, regularly portrayed African Americans as lazy and dim-witted \citep{dates1993split, toll1974blacking}. More recently, \citet{entman2001black} found that 56\% of blacks in the media were portrayed as violent compared to 11\% of the whites.
 
 There is good reason to think that these offensive portrayals contribute to negative stereotypes of African Americans. For among the most foundational cognitive biases is the tendency to overweight accessible information \citep{tversky1973availability}. Correspondingly, research suggests that belief in aversive racial stereotypes is associated with exposure to television programming \citep{busselle2002television, entman2001black, armstrong1992tv}. For instance, exposure to television news is correlated with the extent to which college students endorse that blacks are lazy \citep{busselle2002television}. Similarly, \citet{armstrong1992tv} find that more television news the college students consumed, more likely they were to hold the belief that blacks have lower socio-economic outcomes. (Albeit, ``TV drama exposure was associated with beliefs that Black Americans had a relatively higher socio-economic standing.'') A comprehensive study of how blacks are portrayed in the media by \citet{entman2001black} reached similar conclusions---exposure to nonfictional portrayals of African Americans is associated with negative stereotypes of blacks.
 
@@ -104,32 +104,46 @@ We coded victims' and criminals' race as white, black, Asian, or Hispanic, follo
 
 In addition to the data on the race and gender of the victims and the criminals from the shows, we collected data on a few baselines. From the 1990, 2000, and 2010 census, we collected data on the percentage of whites, blacks, and men in the US and in New York City. Like \citet{dixon2000overrepresentation}, from the Federal Bureau of Investigation's Uniform Crime Report (UCR), we gathered data on the percentage of blacks, whites and men arrested for \textit{All Crimes}, \textit{Violent Crimes}, and \textit{Sexually Based Crimes}. From New York Police Department's Crime and Enforcement Activity in New York City Report (NYPD),\footnote{\url{http://www.nyc.gov/html/nypd/html/analysis_and_planning/crime_and_enforcement_activity.shtml}} we gathered data on the percentage of blacks, whites and Hispanics who were suspected of (and were victims of) murder, rape, assault and robbery each year between 2008 and 2015. Lastly, from the Bureau of Justice Statistics' National Crime Victimization Survey (NCVS) \citep{powers2016national, victimization1998national}, we gathered data on the race and gender of victims of crime.  
 
-The UCR data on race of alleged criminals is available for 1995--2014. (For 2015, only preliminary data is currently available. And the preliminary release does not include information on race.) In UCR, race is split into white, black, American Indian or Alaskan Native, Asian, and Native Hawaiian or Other Pacific Islander. The totals in these categories include Hispanics; data on Hispanic background only began to be collected in 2013. 
+The UCR data on race of alleged criminals is available for 1995--2015. In UCR, race is split into white, black, American Indian or Alaskan Native, Asian, and Native Hawaiian or Other Pacific Islander. The totals in these categories include Hispanics. Data on Hispanic background only began to be collected in 2013, and even then the data doesn't split race by Hispanic ethnicity. These raw numbers are likely severely biased---nearly 93\% of Hispanics self-identify as Whites and pooling Hispanics likely inflates the proportion of White criminals more than Blacks \citep{steffensmeier2011reassessing}. To arrive at commensurable numbers, we exploit the method proposed by \citet{steffensmeier2011reassessing}---we adjust UCR data by leveraging data from states (California and New York) where arrest data includes Hispanics. We use these adjusted numbers when making comparisons.
 
 In UCR, 28 types of crimes are split into two categories: \textit{Violent Crime} and \textit{Property Crime}. \textit{Violent Crime} includes murder and non-negligent manslaughter, rape, robbery, and aggravated assault. And \textit{Property Crime} includes burglary, larceny-theft, motor vehicle theft, and arson. We collected data on the percentage of people arrested by race (white and black) and gender (male) for all crimes, violent crimes, as well as arrested for three of the most common offenses shown in the Law \& Order shows: homicides, rapes, and assaults. (660 of the 731 shows included in our data featured a rape, murder, or assault.)
 
-Victim data from the NCVS covers the period between 1993--2014. Racial data in the NCVS can be gathered with Hispanics included in the category totals and without. We collected both kinds of data, but utilize data that more closely matches the FBI methodology and does not separate out Hispanics.
+Victim data from the NCVS covers the period between 1993--2014. Racial data in the NCVS can be gathered with Hispanics included in the category totals, and without. We collected both kinds of data, but focus on data that more closely matches our data, and separates out Hispanics.
 
-Like the UCR, the NCVS aggregates various crimes into categories. In NCVS, however, the categories are \textit{Violent Victimization} and \textit{Serious Violent Victimization}. Both account for victims of rape, sexual assault, and robbery. \textit{Violent Victimization}, however, tallies all types of assault, while \textit{Serious Violent Victimization} only tallies aggravated assaults. Therefore, \textit{Serious Violent Victimization} is the closest to the \textit{Violent Crime} category in the UCR. Hence, we use data from that category. In addition, we also collect data for two specific offenses: rape/sexual assault and aggravated assault. (Given that the NCVS data comes from interviews with victims, there is naturally no data on murders. Data on race and gender of murder victims comes from UCR.)
+Like the UCR, the NCVS aggregates various crimes into categories. In NCVS, however, the categories are \textit{Violent Victimization} and \textit{Serious Violent Victimization}. Both account for victims of rape, sexual assault, and robbery. \textit{Violent Victimization}, however, tallies all types of assault, while \textit{Serious Violent Victimization} only tallies aggravated assaults. Therefore, \textit{Serious Violent Victimization} is the closest to the \textit{Violent Crime} category in the UCR. Hence, we use data from that category. In addition, we also collect data for two specific offenses: rape/sexual assault and aggravated assault. (Given that the NCVS data comes from interviews with victims, there is naturally no data on murders. Data on the race and gender of murder victims comes from UCR.)
 
 \section*{Results}
-To study how racial and gender breakdown of criminals and victims in Law \& Order compares to 'the real world', we compare the percentage of black and female criminals and victims on the three Law \& Order shows to a variety of baselines. In the main text, we describe the percentage of black and female criminals and victims by show, same percentages for episodes featuring murder, and SVU episodes featuring rape. (Criminal Intent and Original had fewer than 10 episodes each where rape was one of the crimes.) We compare these to average percentage of black and female criminals for all crimes, rape, and murder from the UCR, and percentage of black and female victims for murder, rape, and serious violent crimes during a commensurate period. A series of graphs and tables in ~\ref{si_figs} and ~\ref{si_tabs} break data down by year, and provide other baselines like data from the census that we don't include in the main text.
+To study how racial and gender breakdown of criminals and victims in Law \& Order compares to `the real world', we compare the percentage of black and female criminals and victims on the three Law \& Order shows to a variety of baselines. In the main text, we describe the percentage of black and female criminals and victims by show, same percentages for episodes featuring murder, and SVU episodes featuring rape. (Criminal Intent and Original had fewer than 10 episodes each where rape was one of the crimes.) We compare these to average percentage of black and female criminals for all crimes, rape, and murder from the UCR, and percentage of black and female victims for murder, rape, and serious violent crimes during a commensurate period. A series of graphs and tables in ~\ref{si_figs} and ~\ref{si_tabs} break data down by year, and provide other baselines like data from the census that we don't include in the main text.
 
 As Figure ~\ref{fig:perp_race} shows, criminals on all three shows were overwhelmingly white. Nearly 90\% of the criminals in each of the shows was white. When we look at percentage of white criminals by year---all episodes broadcast within the year, and hence generally includes episodes from two seasons---we see no discernible pattern (see Figure~\ref{fig:perp_race_ts} and Table~\ref{tab:c_sex}). The percentage of Black criminals in the three series is between a third and a fifth of the percentage of Blacks arrested for commensurate crimes (see Figure ~\ref{fig:perp_race}). 
 
 \begin{figure}[!htbp]
 \centering
-\caption{Race of Criminals in Law \& Order and the Real World}
+\caption{Share of Black Criminals in Law \& Order and the Real World}
 \includegraphics[scale=.9]{../figs/all_criminals_by_race.pdf}
 \label{fig:perp_race}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\caption{Share of Hispanic Criminals in Law \& Order and the Real World}
+\includegraphics[scale=.9]{../figs/all_criminals_by_race_hispanic.pdf}
+\label{fig:victim_race}
 \end{figure}
 
 Not only were the perpetrators of crime overwhelmingly white, so were the victims (see Figure \ref{fig:victim_race}). Once again, nearly 90\% of the victims depicted in all three shows were white. And these percentages didn't vary appreciably depending on the kind of crime that was portrayed in the episode. Splitting the data by year and tallying percentage of victims who were white shows no discernible time trend across the shows (see Figure~\ref{fig:victim_race_ts} and Table~\ref{tab:v_race}). Compared to Law \& Order, where only about 10 percent of the victims were black, the average percentage of victims of a serious violent crime between 1999 and 2014 who were black was 19.8\%. Commensurate number for victims of sexual assault was 15.21\%, for aggravated violence, it was 19.4\%, and for murder, it was nearly 50\% (see Figure ~\ref{fig:perp_race}).
 
 \begin{figure}[htbp]
 \centering
-\caption{Race of Victims in Law \& Order and the Real World}
+\caption{Share of Black Victims in Law \& Order and the Real World}
 \includegraphics[scale=.9]{../figs/all_victims_by_race.pdf}
+\label{fig:victim_race}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\caption{Share of Hispanic Victims in Law \& Order and the Real World}
+\includegraphics[scale=.9]{../figs/all_victims_by_race_hispanic.pdf}
 \label{fig:victim_race}
 \end{figure}
 
@@ -137,7 +151,7 @@ Moving to gender, nearly 30\% of the criminals were women across the three shows
 
 \begin{figure}[htbp]
 \centering
-\caption{Gender of Criminals in Law \& Order and the Real World}
+\caption{Share of Female Criminals in Law \& Order and the Real World}
 \includegraphics[scale=.9]{../figs/all_criminals_by_gender.pdf}
 \label{fig:perp_sex}
 \end{figure}
@@ -146,13 +160,13 @@ When we looked at the gender of victims, there was an expected sizable variation
 
 \begin{figure}[htbp]
 \centering
-\caption{Gender of Victims in Law \& Order and the Real World}
+\caption{Share of Female Victims in Law \& Order and the Real World}
 \includegraphics[scale=.9]{../figs/all_victims_by_gender.pdf}
 \label{fig:victim_sex}
 \end{figure}
 
 \section*{Discussion}
-Popular television is our bay window to the world. What we see on television likely has a sizable influence on how we think about the world. In particular, television programming likely influences how we think about crime, how common we think it is, especially in our communities, who we think perpetrates it, the reasons why criminals do what they do, who the victims are, the efficacy of the police and judicial systems, among other things.\footnote{We informally collected data on the efficacy and fairness of police and judicial systems. Across all three shows, police and judicial system, despite their problems, are shown to be astonishingly efficacious and fair. According to our informal estimates, well over 80\% of the cases are successfully closed. However, we do not put too much faith in our data and recommend that other researchers collect more systematic data on the point.} 
+Popular television is our bay window to the world. What we see on television likely has a sizable influence on how we think about the world. In particular, television programming likely influences how we think about crime, how common we think it is, especially in our communities, who we think perpetrates it, the reasons why criminals do what they do, who the victims are, the efficacy of the police and judicial systems, among other things. 
 
 In this essay, we shed light on whether a popular police procedural perpetuates adversarial stereotypes about blacks, and in doing so shed light on racial and gender imbalance in portrayal of criminals and victims. In line with other evidence (see Table \ref{tab:lit}), we find that contrary to worries about overrepresentation of blacks as criminals, whites are significantly overrepresented as perpetrators, and to a smaller degree, overrepresented as victims. We also find that women are overrepresented as criminals. These imbalances likely affect people's perceptions of who the criminals and victims are. For instance, naive but avid viewers of Law \& Order may come to believe that the share of perpetrators and victims of crime who are white is substantially higher than it is. This, in turn, may shape their views about crime and policies that are likely to be most efficacious in reducing crime. For instance, they may become persuaded that greater policing of white neighborhoods is needed. Similar such shaping of policy consequential attitudes is easy to fathom. 
 
