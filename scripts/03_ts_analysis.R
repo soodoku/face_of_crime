@@ -218,7 +218,7 @@ ggsave("figs/all_criminals_by_gender_ts.pdf", dpi=450, width=7.5)
 out <- 
 lo_all %>%
 group_by(series, year) %>%
-summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), pblack = black*100/sum(white, black))
+summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), hispanic=sum(n_c_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), pblack = black*100/sum(white, black, hispanic, asian))
 
 # Spread by series
 w_out <- out[,c("pblack", "series", "year")] %>% spread(series, pblack)
@@ -289,7 +289,7 @@ ggsave("figs/all_victims_by_race_ts.pdf", dpi=450, width=7.5)
 out <- 
 lo_all %>%
 group_by(series, year) %>%
-summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), pblack = black*100/sum(white, black))
+summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), hispanic=sum(n_c_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), pblack = black*100/sum(white, black, hispanic, asian))
 
 # Spread by series
 w_out <- out[,c("pblack", "series", "year")] %>% spread(series, pblack)
@@ -349,4 +349,5 @@ cust_theme
 direct.label(p, list(last.points, cex=.8, alpha=1, hjust = 0, vjust = -.75))
 
 ggsave("figs/all_criminals_by_race_ts.pdf", dpi=450, width=7.5)
+
 

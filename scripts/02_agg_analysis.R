@@ -62,6 +62,10 @@ census_means  <- colMeans(census)
 ncvs       <- read.csv("data/ncvs/ncvs.csv")
 ncvs_means <- colMeans(ncvs)
 
+# NCVS Hispanic 
+ncvs_hisp       <- read.csv("data/ncvs/ncvs_hispanic.csv")
+ncvs_hisp_means <- colMeans(ncvs_hisp)
+
 # Read in murder victim data
 murder_victims        <- read.csv("data/ucr/murder_victim_race_gender.csv")
 murder_victims[,2:4]  <- sapply(murder_victims[,2:4], function(x) as.numeric(gsub("%", "", x)))
@@ -71,6 +75,10 @@ murder_v_means        <- colMeans(murder_victims)
 # UCR
 ucr        <- read.csv("data/ucr/race_gender_criminals.csv")
 ucr_means  <- colMeans(ucr)
+
+# UCR Hispanic 
+ucr_hisp        <- read.csv("data/ucr/race_gender_criminals_hispanic.csv")
+ucr_hisp_means  <- colMeans(ucr_hisp, na.rm=T)
 
 # NY Data  
 ny        <- read.csv("data/ny_enforcement/nyc_enforcement.csv")
@@ -195,21 +203,21 @@ ggsave("figs/all_criminals_by_gender.pdf", scale = .8)
 out_rape <- 
 lo_rape %>%
 group_by(series) %>%
-summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), pblack = black*100/sum(white, black))
+summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), hispanic = sum(n_v_hispanic, na.rm=T),  asian=sum(n_v_asian, na.rm=T), pblack = black*100/sum(white, black, hispanic, asian))
 rout_rape <- out_rape[3, c("series", "pblack")] # as number of rapes portrayed in other shows not large enough
 
 # Victims by Race in shows where one of the crimes was murder
 out_murder <- 
 lo_murder %>%
 group_by(series) %>%
-summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), pblack = black*100/sum(white, black))
+summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), hispanic = sum(n_v_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), pblack = black*100/sum(white, black, hispanic, asian))
 rout_murder <- out_murder[,c("series", "pblack")]
 
 # Victims by Race
 out <- 
 lo_all %>%
 group_by(series) %>%
-summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), pblack = black*100/sum(white, black))
+summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), hispanic = sum(n_v_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), pblack = black*100/sum(white, black, hispanic, asian))
 rout <-  out[,c("series", "pblack")]
 
 # UCR and NCVS and NY 
@@ -232,6 +240,47 @@ cust_theme
 
 ggsave("figs/all_victims_by_race.pdf", scale = .8)
 
+# Plot 2a/SI: Hispanics 
+# ---------------------------
+
+# Hispanic victims of rape
+out_rape <- 
+lo_rape %>%
+group_by(series) %>%
+summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), hispanic = sum(n_v_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), phispanic = hispanic*100/sum(white, black, hispanic, asian))
+rout_rape <- out_rape[3, c("series", "phispanic")] # as number of rapes portrayed in other shows not large enough
+
+# Hispanic Victims in shows where one of the crimes was murder
+out_murder <- 
+lo_murder %>%
+group_by(series) %>%
+summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), hispanic = sum(n_v_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), phispanic = hispanic*100/sum(white, black, hispanic, asian))
+rout_murder <- out_murder[,c("series", "phispanic")]
+
+out <- 
+lo_all %>%
+group_by(series) %>%
+summarise(white=sum(n_v_white, na.rm=T), black=sum(n_v_black, na.rm=T), hispanic = sum(n_v_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), phispanic = hispanic*100/sum(white, black, hispanic, asian))
+rout <-  out[,c("series", "phispanic")]
+
+ny_v_race     <- data.frame(series="NYPD", phispanic=ny_means[c("homicides_hispanic_victim", "rapes_hispanic_victim")])
+ncvs_v_race   <- data.frame(series="NCVS", phispanic = ncvs_hisp_means[c("rape_hispanic", "serious_violent_victimization_hispanic")])
+
+# All/Rape/Murder Hispanic 
+rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ny_v_race, ncvs_v_race), crime = c(rep("All",3), rep("Murder", 3), "Rape", "Murder", "Rape", "Rape", "Serious Violent Victimization"))
+rout2$series <- factor(rout2$series, levels=c("NYPD", "NCVS", "SVU", "Criminal Intent", "Original"))
+
+ggplot(rout2, aes(series, phispanic, color=crime)) +
+geom_point(pch=16, size=3, alpha=.55) + 
+scale_colour_manual(values = c("#aaaaaa","#5628a6", "#56a628", "#a65628"), guide= guide_legend(title="")) + 
+coord_flip() + 
+scale_x_discrete(expand=c(.3,1)) + 
+scale_y_continuous(name="Percentage of Hispanic Victims", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
+xlab("") +
+cust_theme
+
+ggsave("figs/all_victims_by_race_hispanic.pdf", scale = .8)
+
 # Plot 2b
 # --------------------------
 
@@ -239,21 +288,21 @@ ggsave("figs/all_victims_by_race.pdf", scale = .8)
 out_rape <- 
 lo_rape %>%
 group_by(series) %>%
-summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), pblack = black*100/sum(white, black))
+summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), hispanic=sum(n_c_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), pblack = black*100/sum(white, black, hispanic, asian))
 rout_rape <- out_rape[3, c("series", "pblack")] # as number of rapes portrayed in other shows not large enough
 
 # Criminals  by Race in shows where one of the crimes was murder
 out_murder <- 
 lo_murder %>%
 group_by(series) %>%
-summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), pblack = black*100/sum(white, black))
+summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), hispanic=sum(n_c_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), pblack = black*100/sum(white, black, hispanic, asian))
 rout_murder <- out_murder[,c("series", "pblack")]
 
 # Criminals  by Race
 out <- 
 lo_all %>%
 group_by(series) %>%
-summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), pblack = black*100/sum(white, black))
+summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), hispanic=sum(n_c_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), pblack = black*100/sum(white, black, hispanic, asian))
 rout <- out[,c("series", "pblack")]
 
 # UCR 
@@ -274,3 +323,46 @@ xlab("") +
 cust_theme
 
 ggsave("figs/all_criminals_by_race.pdf", scale = .8)
+
+# Plot 2b/SI/Hispanics 
+# --------------
+
+# Criminals  by Race in shows where one of the crimes was rape 
+out_rape <- 
+lo_rape %>%
+group_by(series) %>%
+summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), hispanic=sum(n_c_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), phispanic = hispanic*100/sum(white, black, hispanic, asian))
+rout_rape <- out_rape[3, c("series", "phispanic")] # as number of rapes portrayed in other shows not large enough
+
+# Criminals  by Race in shows where one of the crimes was murder
+out_murder <- 
+lo_murder %>%
+group_by(series) %>%
+summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), hispanic=sum(n_c_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), phispanic = hispanic*100/sum(white, black, hispanic, asian))
+rout_murder <- out_murder[,c("series", "phispanic")]
+
+# Criminals  by Race
+out <- 
+lo_all %>%
+group_by(series) %>%
+summarise(white=sum(n_c_white, na.rm=T), black=sum(n_c_black, na.rm=T), hispanic=sum(n_c_hispanic, na.rm=T), asian=sum(n_v_asian, na.rm=T), phispanic = hispanic*100/sum(white, black, hispanic, asian))
+rout <- out[,c("series", "phispanic")]
+
+# UCR 
+ucr_c_race  <- data.frame(series="UCR",  phispanic = ucr_hisp_means[c("all_crime_perc_hispanic", "homicides_perc_hispanic", "rape_perc_hispanic")])
+ny_c_race   <- data.frame(series="NYPD", phispanic = ny_means[c("homicides_hispanic_suspect", "rapes_hispanic_suspect")])
+
+# All/Rape/Murder 
+rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ucr_c_race, ny_c_race), crime = c(rep("All",3), rep("Murder", 3), "Rape", c("All", "Murder","Rape"), "Murder", "Rape"))
+rout2$series <- factor(rout2$series, levels=c("NYPD", "UCR", "NCVS", "SVU", "Criminal Intent", "Original"))
+
+ggplot(rout2, aes(series, phispanic, color=crime)) +
+geom_point(pch=16, size=3, alpha=.55) + 
+scale_colour_manual(values = c("#aaaaaa","#5628a6", "#56a628"), guide= guide_legend(title="")) + 
+coord_flip() + 
+scale_x_discrete(expand=c(.3,1)) + 
+scale_y_continuous(name="Percentage of Hispanic Criminals", limits=c(0,100), breaks=seq(0,100,10), labels=paste0(seq(0,100,10), "%")) +
+xlab("") +
+cust_theme
+
+ggsave("figs/all_criminals_by_race_hispanic.pdf", scale = .8)
