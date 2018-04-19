@@ -37,18 +37,18 @@ parser <- function(in_col, needles) {
                         comp <- i ==x | grepl(paste0(" ", i), x)
                         y    <- ifelse(sum(comp), x[comp], 0)
                         z    <- sapply(strsplit(as.character(y), " "), "[", 1)
-                        as.numeric(ifelse(z==i, 1, z))
+                        as.numeric(ifelse(z == i, 1, z))
                         })
   }
 
   as.data.frame(res)
 }
 
-lo_ci[,c("n_v_male", "n_v_female")] <- parser(lo_ci$v_sex, needles = c("male", "female"))
-lo_ci[,c("n_c_male", "n_c_female")] <- parser(lo_ci$c_sex, needles = c("male", "female"))
+lo_ci[, c("n_v_male", "n_v_female")] <- parser(lo_ci$v_sex, needles = c("male", "female"))
+lo_ci[, c("n_c_male", "n_c_female")] <- parser(lo_ci$c_sex, needles = c("male", "female"))
 
-lo_ci[,c("n_v_white", "n_v_black", "n_v_hispanic", "n_v_asian")] <- parser(lo_ci$v_race, c("white", "black", "hispanic", "asian"))
-lo_ci[,c("n_c_white", "n_c_black", "n_c_hispanic", "n_c_asian")] <- parser(lo_ci$c_race, c("white", "black", "hispanic", "asian"))
+lo_ci[, c("n_v_white", "n_v_black", "n_v_hispanic", "n_v_asian")] <- parser(lo_ci$v_race, c("white", "black", "hispanic", "asian"))
+lo_ci[, c("n_c_white", "n_c_black", "n_c_hispanic", "n_c_asian")] <- parser(lo_ci$c_race, c("white", "black", "hispanic", "asian"))
 
 
 
@@ -62,11 +62,11 @@ lo_or <- read.csv("data/lo/law_and_order_lo.csv")
 # Change the col. names
 names(lo_or) <- c("season", "episode", "year", "title", "crime", "n_victims", "v_sex", "v_race", "n_criminals", "c_sex", "c_race", "notes")
 
-lo_or[,c("n_v_male", "n_v_female")] <- parser(lo_or$v_sex, c("male", "female"))
-lo_or[,c("n_c_male", "n_c_female")] <- parser(lo_or$c_sex, c("male", "female"))
+lo_or[, c("n_v_male", "n_v_female")] <- parser(lo_or$v_sex, c("male", "female"))
+lo_or[, c("n_c_male", "n_c_female")] <- parser(lo_or$c_sex, c("male", "female"))
 
-lo_or[,c("n_v_white", "n_v_black", "n_v_hispanic", "n_v_asian")] <- parser(lo_or$v_race, c("white", "black", "hispanic", "asian"))
-lo_or[,c("n_c_white", "n_c_black", "n_c_hispanic", "n_c_asian")] <- parser(lo_or$c_race, c("white", "black", "hispanic", "asian"))
+lo_or[, c("n_v_white", "n_v_black", "n_v_hispanic", "n_v_asian")] <- parser(lo_or$v_race, c("white", "black", "hispanic", "asian"))
+lo_or[, c("n_c_white", "n_c_black", "n_c_hispanic", "n_c_asian")] <- parser(lo_or$c_race, c("white", "black", "hispanic", "asian"))
 
 #
 # SVU
@@ -80,21 +80,21 @@ lo_svu_1 <- subset(lo_svu_1, select=-c(crime1, crime2))
 
 # Season 2
 lo_svu_2  <- read.csv("data/svu/law_and_order_svu_2.csv")    # Seasons 3--5
-lo_svu_2  <- subset(lo_svu_2, select= c("season", "episode", "year", "title", "crime", "n_victims", "v_sex", "v_race", "n_criminals", "c_sex", "c_race", "notes"))  
+lo_svu_2  <- subset(lo_svu_2, select = c("season", "episode", "year", "title", "crime", "n_victims", "v_sex", "v_race", "n_criminals", "c_sex", "c_race", "notes"))  
 
 # Seasons 3--5
 lo_svu_35  <- read.csv("data/svu/law_and_order_svu_3_5.csv")    # Seasons 3--5
-lo_svu_35  <- subset(lo_svu_35, select=-c(Timestamp))  # Take out data in Timestamp
+lo_svu_35  <- subset(lo_svu_35, select = -c(Timestamp))  # Take out data in Timestamp
 
 # Seasons 3--16
 lo_svu_617 <- read.csv("data/svu/law_and_order_svu_6_17.csv")
-lo_svu_617 <- subset(lo_svu_617, select=-c(Data.in.Google.forms)) # Take out data in goog_forms field
+lo_svu_617 <- subset(lo_svu_617, select = -c(Data.in.Google.forms)) # Take out data in goog_forms field
 
 # Merge data
 lo_svu <- rbind(lo_svu_1, lo_svu_2, lo_svu_35, lo_svu_617)
 
-lo_svu[,c("n_v_male", "n_v_female")] <- parser(lo_svu$v_sex, c("male", "female"))
-lo_svu[,c("n_c_male", "n_c_female")] <- parser(lo_svu$c_sex, c("male", "female"))
+lo_svu[, c("n_v_male", "n_v_female")] <- parser(lo_svu$v_sex, c("male", "female"))
+lo_svu[, c("n_c_male", "n_c_female")] <- parser(lo_svu$c_sex, c("male", "female"))
 
-lo_svu[,c("n_v_white", "n_v_black", "n_v_hispanic", "n_v_asian")] <- parser(lo_svu$v_race, c("white", "black", "hispanic", "asian"))
-lo_svu[,c("n_c_white", "n_c_black", "n_c_hispanic", "n_c_asian")] <- parser(lo_svu$c_race, c("white", "black", "hispanic", "asian"))
+lo_svu[, c("n_v_white", "n_v_black", "n_v_hispanic", "n_v_asian")] <- parser(lo_svu$v_race, c("white", "black", "hispanic", "asian"))
+lo_svu[, c("n_c_white", "n_c_black", "n_c_hispanic", "n_c_asian")] <- parser(lo_svu$c_race, c("white", "black", "hispanic", "asian"))

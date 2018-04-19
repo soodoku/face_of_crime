@@ -17,10 +17,12 @@ names(lit) <- c("Region Covered", "Time frame", "Media", "Key Relevant Findings"
 
 print(
 	  xtable(lit, 
-	  	caption="Racial Distribution of Perpetrators and Victims on Various Television Shows", 
-	  	align= c("p{0.04\\textwidth}", "p{0.1\\textwidth}", "p{0.1\\textwidth}", "p{0.1\\textwidth}", "p{0.55\\textwidth}", "p{0.12\\textwidth}"), label="tab:lit"), 
+	  	caption = "Racial Distribution of Perpetrators and Victims on Various Television Shows", 
+	  	align = c("p{0.04\\textwidth}", "p{0.1\\textwidth}", "p{0.1\\textwidth}", "p{0.1\\textwidth}", "p{0.55\\textwidth}", "p{0.12\\textwidth}"), label = "tab:lit"), 
 		include.rownames = FALSE,
-	    include.colnames = TRUE, size="\\tiny", 
+	    include.colnames = TRUE,
+	    size = "\\tiny", 
 	    type = "latex", sanitize.text.function = function(x){x},
-	    caption.placement="top",table.placement="!htb",
-	    file="tabs/lit.tex")
+	    caption.placement = "top",
+	    table.placement = "!htb",
+	    file = "tabs/lit.tex")
