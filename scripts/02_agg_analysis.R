@@ -30,8 +30,8 @@ lo_all <- rbind(lo_ci, lo_svu, lo_or)
 # Total shows, n_victims, n_criminals
 # -----------------------------------------
 nrow(lo_all)
-sum(as.numeric(lo_all$n_victims), na.rm=T)
-sum(as.numeric(lo_all$n_criminals), na.rm=T)
+sum(as.numeric(lo_all$n_victims), na.rm = T)
+sum(as.numeric(lo_all$n_criminals), na.rm = T)
 
 # What kind of crime 
 # ---------------------------
@@ -47,9 +47,9 @@ table(lo_all$murder, lo_all$series)
 table(lo_all$rape,   lo_all$series)
 
 # Split by crime 
-lo_rape     <- lo_all[lo_all$rape == 1,]
-lo_murder   <- lo_all[lo_all$murder == 1,]
-lo_mrdraslt <- lo_all[lo_all$murder == 1 | lo_all$assault == 1,]
+lo_rape     <- lo_all[lo_all$rape == 1, ]
+lo_murder   <- lo_all[lo_all$murder == 1, ]
+lo_mrdraslt <- lo_all[lo_all$murder == 1 | lo_all$assault == 1, ]
 
 # Add Census, UCR, Crime Victimization Data
 #----------------------------------------------
@@ -68,7 +68,7 @@ ncvs_hisp_means <- colMeans(ncvs_hisp)
 
 # Read in murder victim data
 murder_victims        <- read.csv("data/ucr/murder_victim_race_gender.csv")
-murder_victims[,2:4]  <- sapply(murder_victims[, 2:4], function(x) as.numeric(gsub("%", "", x)))
+murder_victims[, 2:4]  <- sapply(murder_victims[, 2:4], function(x) as.numeric(gsub("%", "", x)))
 names(murder_victims) <- tolower(names(murder_victims))
 murder_v_means        <- colMeans(murder_victims)
 
@@ -78,7 +78,7 @@ ucr_means  <- colMeans(ucr)
 
 # UCR Hispanic 
 ucr_hisp        <- read.csv("data/ucr/race_gender_criminals_hispanic.csv")
-ucr_hisp_means  <- colMeans(ucr_hisp, na.rm=T)
+ucr_hisp_means  <- colMeans(ucr_hisp, na.rm = T)
 
 # NY Data  
 ny        <- read.csv("data/ny_enforcement/nyc_enforcement.csv")
@@ -86,12 +86,11 @@ names(ny) <- tolower(names(ny))
 ny        <- as.data.frame(lapply(ny, function(x) as.numeric(gsub("%", "", x))))
 ny_means  <- colMeans(ny, na.rm = T)
 
-# -----------
 # Custom theme
+#-----------------
 
-cust_theme <- 
-theme_minimal() +
-theme(panel.grid.major = element_line(color="#e1e1e1",  linetype = "dotted"),
+cust_theme <- theme_minimal() +
+  theme(panel.grid.major = element_line(color="#e1e1e1",  linetype = "dotted"),
 	  panel.grid.minor = element_blank(),
 	  legend.position  ="bottom",
 	  legend.key      = element_blank(),
@@ -99,13 +98,10 @@ theme(panel.grid.major = element_line(color="#e1e1e1",  linetype = "dotted"),
 	  axis.title   = element_text(size = 10, color = "#555555"),
 	  axis.text    = element_text(size = 10, color = "#555555"),
 	  axis.ticks.y = element_blank(),
-	  axis.title.x = element_text(vjust =-1, margin = margin(10, 0, 0, 0)),
+	  axis.title.x = element_text(vjust = -1, margin = margin(10, 0, 0, 0)),
 	  axis.title.y = element_text(vjust = 1),
 	  axis.ticks   = element_line(color = "#e3e3e3", size = .2),
 	  plot.margin = unit(c(0, 1, 0, 0), "cm"))
-
-#------------
-
 
 
 # Plot 1a
@@ -125,7 +121,7 @@ out_murder <- lo_murder %>%
   summarise(male = sum(n_v_male, na.rm = T),
   	        female = sum(n_v_female, na.rm = T),
   	        pfemale = female*100/sum(male, female))
-rout_murder <- out_murder[,c("series", "pfemale")]
+rout_murder <- out_murder[, c("series", "pfemale")]
 
 # Victims by gender
 out <- lo_all %>%
@@ -140,8 +136,8 @@ ucr_v_sex  <- data.frame(series = "UCR",  pfemale = 100 - murder_v_means["murder
 ncvs_v_sex <- data.frame(series = "NCVS", pfemale = 100 - ncvs_means[c("rape_sexual_assault_male", "serious_violent_victimization_male")])
 
 # All/Murder 
-rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ucr_v_sex, ncvs_v_sex), crime = c(rep("All",3), rep("Murder", 3), "Rape", "Murder","Rape", "Serious Violent Victimization"))
-rout2$series <- factor(rout2$series, levels=c("UCR", "NCVS", "SVU", "Criminal Intent", "Original"))
+rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ucr_v_sex, ncvs_v_sex), crime = c(rep("All", 3), rep("Murder", 3), "Rape", "Murder","Rape", "Serious Violent Victimization"))
+rout2$series <- factor(rout2$series, levels = c("UCR", "NCVS", "SVU", "Criminal Intent", "Original"))
 
 # Plot
 ggplot(rout2, aes(series, pfemale, color = crime)) +
@@ -173,7 +169,7 @@ out_murder <- lo_murder %>%
   summarise(male = sum(n_c_male, na.rm = T),
   	        female = sum(n_c_female, na.rm = T),
   	        pfemale = female*100/sum(male, female))
-rout_murder <- out_murder[,c("series", "pfemale")]
+rout_murder <- out_murder[, c("series", "pfemale")]
 
 # Criminals by Gender
 out <- lo_all %>%
@@ -184,10 +180,10 @@ out <- lo_all %>%
 rout <- out[, c("series", "pfemale")]
 
 # UCR 
-ucr_c_sex <- data.frame(series="UCR",  pfemale = 100 - ucr_means[c("all_crime_perc_men", "homicides_perc_men", "rape_perc_men")])
+ucr_c_sex <- data.frame(series = "UCR",  pfemale = 100 - ucr_means[c("all_crime_perc_men", "homicides_perc_men", "rape_perc_men")])
 
 # All/Rape/Murder 
-rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ucr_c_sex), crime = c(rep("All",3), rep("Murder", 3), "Rape", c("All", "Murder","Rape")))
+rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ucr_c_sex), crime = c(rep("All", 3), rep("Murder", 3), "Rape", c("All", "Murder", "Rape")))
 rout2$series <- factor(rout2$series, levels = c("UCR", "NCVS", "SVU", "Criminal Intent", "Original"))
 
 # Plot
@@ -195,7 +191,7 @@ ggplot(rout2, aes(series, pfemale, color = crime)) +
   geom_point(pch = 16, size = 3, alpha = .55) +
   scale_colour_manual(values = c("#aaaaaa","#5628a6", "#56a628"), guide = guide_legend(title = "")) +
   coord_flip() +
-  scale_x_discrete(expand=c(.3, 1)) +
+  scale_x_discrete(expand = c(.3, 1)) +
   scale_y_continuous(name = "Percentage of Female Criminals", limits = c(0, 100), breaks = seq(0, 100, 10), labels = paste0(seq(0, 100, 10), "%")) +
   xlab("") +
   cust_theme
@@ -223,7 +219,7 @@ out_murder <- lo_murder %>%
 	      hispanic = sum(n_v_hispanic, na.rm = T),
 	      asian = sum(n_v_asian, na.rm = T),
 	      pblack = black*100/sum(white, black, hispanic, asian))
-rout_murder <- out_murder[,c("series", "pblack")]
+rout_murder <- out_murder[, c("series", "pblack")]
 
 # Victims by Race
 out <- lo_all %>%
@@ -241,8 +237,8 @@ ncvs_v_race <- data.frame(series = "NCVS", pblack = ncvs_means[c("rape_sexual_as
 ny_v_race   <- data.frame(series = "NYPD", pblack = ny_means[c("homicides_black_victim", "rapes_black_victim")])
 
 # All/Rape/Murder 
-rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ucr_v_race, ncvs_v_race, ny_v_race), crime = c(rep("All",3), rep("Murder", 3), "Rape", "Murder", "Rape", "Serious Violent Victimization", "Murder", "Rape"))
-rout2$series <- factor(rout2$series, levels=c("NYPD", "UCR", "NCVS", "SVU", "Criminal Intent", "Original"))
+rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ucr_v_race, ncvs_v_race, ny_v_race), crime = c(rep("All", 3), rep("Murder", 3), "Rape", "Murder", "Rape", "Serious Violent Victimization", "Murder", "Rape"))
+rout2$series <- factor(rout2$series, levels = c("NYPD", "UCR", "NCVS", "SVU", "Criminal Intent", "Original"))
 
 ggplot(rout2, aes(series, pblack, color = crime)) +
   geom_point(pch = 16, size = 3, alpha = .55) +
@@ -287,11 +283,11 @@ out <- lo_all %>%
 	      phispanic = hispanic*100/sum(white, black, hispanic, asian))
 rout <-  out[, c("series", "phispanic")]
 
-ny_v_race     <- data.frame(series="NYPD", phispanic = ny_means[c("homicides_hispanic_victim", "rapes_hispanic_victim")])
-ncvs_v_race   <- data.frame(series="NCVS", phispanic = ncvs_hisp_means[c("rape_hispanic", "serious_violent_victimization_hispanic")])
+ny_v_race     <- data.frame(series = "NYPD", phispanic = ny_means[c("homicides_hispanic_victim", "rapes_hispanic_victim")])
+ncvs_v_race   <- data.frame(series = "NCVS", phispanic = ncvs_hisp_means[c("rape_hispanic", "serious_violent_victimization_hispanic")])
 
 # All/Rape/Murder Hispanic 
-rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ny_v_race, ncvs_v_race), crime = c(rep("All",3), rep("Murder", 3), "Rape", "Murder", "Rape", "Rape", "Serious Violent Victimization"))
+rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ny_v_race, ncvs_v_race), crime = c(rep("All", 3), rep("Murder", 3), "Rape", "Murder", "Rape", "Rape", "Serious Violent Victimization"))
 rout2$series <- factor(rout2$series, levels = c("NYPD", "NCVS", "SVU", "Criminal Intent", "Original"))
 
 ggplot(rout2, aes(series, phispanic, color = crime)) +
@@ -299,7 +295,7 @@ ggplot(rout2, aes(series, phispanic, color = crime)) +
   scale_colour_manual(values = c("#aaaaaa","#5628a6", "#56a628", "#a65628"), guide = guide_legend(title = "")) +
   coord_flip() +
   scale_x_discrete(expand = c(.3, 1)) +
-  scale_y_continuous(name = "Percentage of Hispanic Victims", limits=c(0, 100), breaks = seq(0, 100, 10), labels=paste0(seq(0, 100, 10), "%")) +
+  scale_y_continuous(name = "Percentage of Hispanic Victims", limits = c(0, 100), breaks = seq(0, 100, 10), labels = paste0(seq(0, 100, 10), "%")) +
   xlab("") +
   cust_theme
 
@@ -326,7 +322,7 @@ out_murder <- lo_murder %>%
 	      hispanic = sum(n_c_hispanic, na.rm = T),
 	      asian = sum(n_v_asian, na.rm = T),
 	      pblack = black*100/sum(white, black, hispanic, asian))
-rout_murder <- out_murder[,c("series", "pblack")]
+rout_murder <- out_murder[, c("series", "pblack")]
 
 # Criminals  by Race
 out <- lo_all %>%
@@ -339,8 +335,8 @@ out <- lo_all %>%
 rout <- out[, c("series", "pblack")]
 
 # UCR 
-ucr_c_race <- data.frame(series="UCR",  pblack = ucr_means[c("all_crime_perc_black", "homicides_perc_black", "rape_perc_black")])
-ny_c_race  <- data.frame(series="NYPD", pblack=ny_means[c("homicides_black_suspect", "rapes_black_suspect")])
+ucr_c_race <- data.frame(series = "UCR",  pblack = ucr_means[c("all_crime_perc_black", "homicides_perc_black", "rape_perc_black")])
+ny_c_race  <- data.frame(series = "NYPD", pblack=ny_means[c("homicides_black_suspect", "rapes_black_suspect")])
 
 # All/Rape/Murder 
 rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ucr_c_race, ny_c_race), crime = c(rep("All",3), rep("Murder", 3), "Rape", c("All", "Murder","Rape"), "Murder", "Rape"))
@@ -378,7 +374,7 @@ out_murder <- lo_murder %>%
   	        hispanic = sum(n_c_hispanic, na.rm = T),
   	        asian = sum(n_v_asian, na.rm = T),
   	        phispanic = hispanic*100/sum(white, black, hispanic, asian))
-rout_murder <- out_murder[,c("series", "phispanic")]
+rout_murder <- out_murder[, c("series", "phispanic")]
 
 # Criminals  by Race
 out <- lo_all %>%
@@ -391,8 +387,8 @@ out <- lo_all %>%
 rout <- out[, c("series", "phispanic")]
 
 # UCR 
-ucr_c_race  <- data.frame(series="UCR",  phispanic = ucr_hisp_means[c("all_crime_perc_hispanic", "homicides_perc_hispanic", "rape_perc_hispanic")])
-ny_c_race   <- data.frame(series="NYPD", phispanic = ny_means[c("homicides_hispanic_suspect", "rapes_hispanic_suspect")])
+ucr_c_race  <- data.frame(series = "UCR",  phispanic = ucr_hisp_means[c("all_crime_perc_hispanic", "homicides_perc_hispanic", "rape_perc_hispanic")])
+ny_c_race   <- data.frame(series = "NYPD", phispanic = ny_means[c("homicides_hispanic_suspect", "rapes_hispanic_suspect")])
 
 # All/Rape/Murder 
 rout2 <- cbind(rbind(rout, rout_murder, rout_rape, ucr_c_race, ny_c_race), crime = c(rep("All", 3), rep("Murder", 3), "Rape", c("All", "Murder", "Rape"), "Murder", "Rape"))

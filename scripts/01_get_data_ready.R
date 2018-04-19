@@ -76,7 +76,7 @@ lo_or[, c("n_c_white", "n_c_black", "n_c_hispanic", "n_c_asian")] <- parser(lo_o
 lo_svu_1  <- read.csv("data/svu/law_and_order_svu_1.csv")    # Seasons 3--5
 lo_svu_1$crime <- paste0(lo_svu_1$crime1, ";", lo_svu_1$crime2) # Concatenate crime 1 and 2
 lo_svu_1$notes <- NA
-lo_svu_1 <- subset(lo_svu_1, select=-c(crime1, crime2))
+lo_svu_1 <- subset(lo_svu_1, select = -c(crime1, crime2))
 
 # Season 2
 lo_svu_2  <- read.csv("data/svu/law_and_order_svu_2.csv")    # Seasons 3--5

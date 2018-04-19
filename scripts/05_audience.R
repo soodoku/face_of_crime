@@ -14,7 +14,7 @@ root_dir <- "data/law_and_order/criminal_intent/episodes/"
 ci_all  <- lapply(dir(root_dir), function(x) read.csv(paste0(root_dir, x))) 
 
 # Audience numbers
-aud_col <- sapply(ci_all, function(x) x[,grep("U.S.", names(x))])
+aud_col <- sapply(ci_all, function(x) x[, grep("U.S.", names(x))])
 aud_no  <- as.numeric(unlist(aud_col))
 
 mean(aud_no, na.rm = T)
