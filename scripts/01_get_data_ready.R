@@ -50,8 +50,6 @@ lo_ci[, c("n_c_male", "n_c_female")] <- parser(lo_ci$c_sex, needles = c("male", 
 lo_ci[, c("n_v_white", "n_v_black", "n_v_hispanic", "n_v_asian")] <- parser(lo_ci$v_race, c("white", "black", "hispanic", "asian"))
 lo_ci[, c("n_c_white", "n_c_black", "n_c_hispanic", "n_c_asian")] <- parser(lo_ci$c_race, c("white", "black", "hispanic", "asian"))
 
-
-
 #
 # Original
 #------------------------
