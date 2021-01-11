@@ -4,9 +4,9 @@
 
 We coded the race and gender of criminals and victims in shows from three popular Law & Order series---Original Law & Order, Law & Order: Special Victims Unit, and Law & Order: Criminal Intent. 
 
-* [Criminal Intent](data/law_and_order_ci.csv)
-* [Original](data/law_and_order_lo.csv)
-* [Special Victims Unit](data/)
+* [Criminal Intent](data/ci/law_and_order_ci.csv)
+* [Original](data/lo/law_and_order_lo.csv)
+* [Special Victims Unit](data/svu/)
 
 To contextualize the race and gender distribution in the shows, we assembled relevant data for the years the shows were on air from the census, FBI's Uniform Crime Reports, the National Crime Victimization Survey, and NYC enforcement data:
 
